@@ -1,0 +1,27 @@
+name: Despliegue Automático CI/CD - Proyecto Dos
+
+on:
+  push:
+    branches:
+      - master # Asegúrate de que esta es la rama principal de este repo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout (Obtener el código)
+        uses: actions/checkout@v4
+
+      - name: 2. Despliegue Remoto en AWS (La Magia)
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # La nueva ruta del proyecto es 'mi-proyecto-dos'
+            cd /home/ubuntu/mi-proyecto-dos/ 
+
+            # Ejecutar el script de despliegue que tú escribiste
+            ./deploy.sh

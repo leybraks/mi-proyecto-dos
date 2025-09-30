@@ -17,7 +17,7 @@ def hello():
     if count == "error":
         html = "<h2>V1.0 - ¡Despliegue con Error!</h2><b>Redis no está conectado.</b>"
     else:
-        html = "<h2>¡Proyecto Dos Actualizado! - V2.0 ✅</h2>El contador es: <b>{0}</b>"
+        html = "<h2>¡Automatización Total Lograda! - V3.0 🤖</h2>El contador es: <b>{0}</b>"
 
     return html.format(count)
 
